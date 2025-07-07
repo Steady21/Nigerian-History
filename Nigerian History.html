@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigerian Histories - Exploring the Rich Heritage</title>
+    <style>
+        :root {
+            --primary: #008751; /* Nigerian green */
+            --secondary: #fff;
+            --accent: #f7a500;
+            --text: #333;
+            --light-bg: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ca5d6e9-1110-4894-ac60-70721865c6d5.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--secondary);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline {
+            margin: 50px auto;
+            max-width: 750px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 20px 0;
+            padding-left: 100px;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            transform: rotate(45deg);
+            box-shadow: -3px 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .culture-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .culture-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--secondary);
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            position: relative;
+            animation: modalFadeIn 0.5s;
+        }
+        
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 2rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: var(--secondary);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .timeline-item {
+                padding-left: 80px;
+            }
+            
+            .timeline-year {
+                width: 60px;
+                height: 60px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nigerian Histories</div>
+                <ul class="nav-links">
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#cultures">Cultures</a></li>
+                    <li><a href="#kingdoms">Kingdoms</a></li>
+                    <li><a href="#modern">Modern Era</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Rich Tapestry of Nigerian History</h1>
+            <p>Explore the diverse cultures, ancient civilizations, and pivotal moments that shaped Africa's most populous nation</p>
+            <a href="#timeline" class="btn">Begin Journey</a>
+        </div>
+    </section>
+    
+    <section id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Historical Timeline</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">500 BCE</div>
+                    <div class="timeline-content">
+                        <h3>Nok Civilization</h3>
+                        <p>One of the earliest iron-working cultures in Africa emerges in what is now central Nigeria, known for their distinctive terracotta sculptures.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">900 CE</div>
+                    <div class="timeline-content">
+                        <h3>Igbo-Ukwu</h3>
+                        <p>The Igbo-Ukwu civilization develops sophisticated bronze casting techniques and complex trade networks in southeast Nigeria.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1000 CE</div>
+                    <div class="timeline-content">
+                        <h3>Yoruba Kingdoms</h3>
+                        <p>City-states like Ile-Ife (considered the spiritual homeland of the Yoruba) and later Oyo Empire emerge in southwestern Nigeria.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">15th Cent.</div>
+                    <div class="timeline-content">
+                        <h3>Hausa States & Kanem-Bornu</h3>
+                        <p>The Hausa city-states prosper in northern Nigeria while the Bornu Empire (successor to Kanem) reaches its peak under Mai Idris Alooma.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">19th Cent.</div>
+                    <div class="timeline-content">
+                        <h3>Sokoto Caliphate</h3>
+                        <p>Usman dan Fodio leads a jihad that establishes the Sokoto Caliphate, becoming the largest state in West Africa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cultures" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Diverse Cultures</h2>
+            </div>
+            
+            <div class="culture-grid">
+                <div class="culture-card" onclick="openModal('yoruba')">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/77e86012-c4fe-46b3-9475-f3b3b0e9c2d0.png" alt="Yoruba bronze head sculpture with intricate patterns showcasing ancient craftsmanship" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Yoruba Culture</h3>
+                        <p>Rich artistic traditions including sculpture, textile weaving, and the Ifa divination system.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card" onclick="openModal('igbo')">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8fbc68a7-5576-41d5-b122-0415ab6a69e0.png" alt="Vibrant Igbo masquerade performers in colorful costumes at a cultural festival" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Igbo Culture</h3>
+                        <p>Known for decentralized political systems, masked performances, and the Mmami Wota water spirits.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card" onclick="openModal('hausa')">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/da16d06d-0a09-469e-a0d2-eab81014558d.png" alt="Ancient Hausa manuscript written in Ajami script showing Islamic influences" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Hausa-Fulani Culture</h3>
+                        <p>The influential Islamic civilization of the north with distinctive architectural and musical traditions.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card" onclick="openModal('delta')">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2deacf63-f5b5-4a12-85e4-9c93b2ffafac.png" alt="Ijaw fishermen navigating mangrove creeks in traditional wooden boats" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Niger Delta Cultures</h3>
+                        <p>Diverse ethnic groups adapting to riverine environments with specialized fishing techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card" onclick="openModal('middlebelt')">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9f039ac5-a4eb-4173-bc7b-5ba98d8ee311.png" alt="Tarok cultural dancers with elaborate beadwork and rattles during a harvest festival" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Middle Belt Traditions</h3>
+                        <p>The cultural crossroads of Nigeria with unique agricultural rituals and warrior societies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="kingdoms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ancient Kingdoms</h2>
+            </div>
+            
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37aa9e85-89ee-4f69-8bf3-1e80e267d5c2.png" alt="Ancient Benin City walls showing the impressive earthwork fortifications" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Benin Empire</h3>
+                        <p>The powerful kingdom known for its bronze plaques, royal court arts, and complex bureaucracy.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eb864acc-ee6e-4a68-af09-89678923a970.png" alt="Oba of Benin in traditional coral regalia seated on royal stool" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Oyo Empire</h3>
+                        <p>The Yoruba military state with innovative cavalry forces and constitutional monarchy.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4aed184e-0256-4a28-9001-9b899f5b6c60.png" alt="Kanem-Bornu scholars studying ancient Arabic texts in a palace courtyard" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Kanem-Bornu</h3>
+                        <p>The Saharan empire that controlled trans-Saharan trade routes for nearly a millennium.</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2b69ad0a-95ca-4896-a4cc-75743cca1806.png" alt="Ancient Nri priest performing spiritual rites in ceremonial white attire" />
+                    </div>
+                    <div class="card-content">
+                        <h3>Nri Kingdom</h3>
+                        <p>The spiritual center of Igbo culture with a priestly monarchy and elaborate ritual traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="modern">
+        <div class="container">
+            <div class="section-title">
+                <h2>Modern Nigeria</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1914</div>
+                    <div class="timeline-content">
+                        <h3>Amalgamation</h3>
+                        <p>The British merge Northern and Southern protectorates to create modern Nigeria under Governor Frederick Lugard.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1960</div>
+                    <div class="timeline-content">
+                        <h3>Independence</h3>
+                        <p>Nigeria gains independence from Britain with Nnamdi Azikiwe as Governor-General and later President.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1967-70</div>
+                    <div class="timeline-content">
+                        <h3>Civil War</h3>
+                        <p>The Nigerian Civil War (Biafran War) results from tensions between ethnic groups in the aftermath of independence.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1999</div>
+                    <div class="timeline-content">
+                        <h3>Fourth Republic</h3>
+                        <p>Nigeria transitions to its current democratic governance system after years of military rule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Explore Nigerian Histories</h3>
+                <!--<div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>-->
+                <p>© 2025 Steady rechaerch on History. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal Windows -->
+    <div id="yoruba-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('yoruba')">&times;</span>
+            <h2>Yoruba Civilization</h2>
+            <p>The Yoruba people developed one of Africa's most sophisticated urban civilizations, with city-states like Ile-Ife (regarded as the spiritual birthplace of the Yoruba) and later Oyo Empire dominating southwestern Nigeria.</p>
+            <p>Key features include:</p>
+            <ul>
+                <li>Advanced bronze and terracotta sculptures from Ilé-Ifẹ̀</li>
+                <li>The complex Ifá divination system</li>
+                <li>Elaborate beadwork and textile traditions (aso oke)</li>
+                <li>Unique traditional architecture (adobe walls, courtyard houses)</li>
+                <li>Rich cosmological traditions centered on the orisha pantheon</li>
+            </ul>
+            <div class="modal-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e54969b-db5b-48ca-a632-f15604323b27.png" alt="Traditional Yoruba Gelede masquerade performance with elaborate costumes" />
+            </div>
+        </div>
+    </div>
+    
+    <div id="igbo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('igbo')">&times;</span>
+            <h2>Igbo Culture</h2>
+            <p>The Igbo people developed a decentralized society organized around village republics, with sophisticated democratic institutions and age-grade systems.</p>
+            <p>Cultural highlights:</p>
+            <ul>
+                <li>Mbari houses of Owerri - ritual art houses celebrating Ala, the earth goddess</li>
+                <li>Bronze artifacts from Igbo-Ukwu (9th century CE)</li>
+                <li>Masquerade traditions like Mmanwu and Ekpe</li>
+                <li>Nsibidi symbols - indigenous writing system</li>
+                <li>Kola nut ceremony in social interactions</li>
+            </ul>
+            <div class="modal-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8ccd85b3-764e-4f98-8c04-60efc6e1fd45.png" alt="Ancient Igbo-Ukwu bronze ceremonial vessel displayed in museum setting" />
+            </div>
+        </div>
+    </div>
+    
+    <div id="hausa-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('hausa')">&times;</span>
+            <h2>Hausa-Fulani Civilization</h2>
+            <p>The Hausa city-states and later Sokoto Caliphate created a major Islamic civilization in northern Nigeria with distinct cultural achievements.</p>
+            <p>Key elements:</p>
+            <ul>
+                <li>Ancient walled cities like Kano and Katsina</li>
+                <li>Ajami literature - writings in Hausa using Arabic script</li>
+                <li>Gidan Rumfa palace architecture</li>
+                <li>Koranic scholarship tradition at Timbuktu and later Sokoto</li>
+                <li>Traditional dye pits (Kofar Mata) for indigo textiles</li>
+            </ul>
+            <div class="modal-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/25def4c7-0291-4658-90fb-91c532d5ef6d.png" alt="Ancient Hausa manuscript in Ajami script showing Islamic calligraphy and illustrations" />
+            </div>
+        </div>
+    </div>
+    
+    <div id="delta-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('delta')">&times;</span>
+            <h2>Niger Delta Cultures</h2>
+            <p>The Niger Delta's creeks and mangrove forests host diverse ethnic groups with unique environmental adaptations.</p>
+            <p>Cultural variations include:</p>
+            <ul>
+                <li>Ijaw water spirits and masquerades</li>
+                <li>Urhobo bronze castings and wood carvings</li>
+                <li>Itsekiri/Benin artistic influences</li>
+                <li>Ekpe secret societies</li>
+                <li>Specialized canoe architecture</li>
+            </ul>
+            <div class="modal-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e457f06-9538-4fdf-9884-a4505cc1bcc6.png" alt="Ijaw fisherman setting fish traps in the Niger Delta mangrove creeks" />
+            </div>
+        </div>
+    </div>
+    
+    <div id="middlebelt-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('middlebelt')">&times;</span>
+            <h2>Middle Belt Traditions</h2>
+            <p>The Middle Belt region represents Nigeria's cultural crossroads with diverse groups including the Tiv, Nupe, Jukun, and others.</p>
+            <p>Cultural traits:</p>
+            <ul>
+                <li>Tiv fabrics and textile patterns</li>
+                <li>Nupe metalworking traditions</li>
+                <li>Jukun ancestral monarchies</li>
+                <li>Agricultural festivals marking seasons</li>
+                <li>Traditional wrestling styles</li>
+            </ul>
+            <div class="modal-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/31c60034-ffce-4eff-9d06-b90b453cae6d.png" alt="Tiv traditional dancers in elaborate costumes performing during cultural festival" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Modal functions
+        function openModal(culture) {
+            document.getElementById(`${culture}-modal`).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(culture) {
+            document.getElementById(`${culture}-modal`).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Font Awesome for icons (fallback if CDN fails)
+        if (typeof FontAwesome === 'undefined') {
+            const faScript = document.createElement('script');
+            faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
+            document.head.appendChild(faScript);
+            
+            // Fallback styling
+            const fallbackStyle = document.createElement('style');
+            fallbackStyle.textContent = `
+                .fab {
+                    font-family: Arial;
+                    font-style: normal;
+                }
+                .fab::before {
+                    content: "[icon]";
+                }
+            `;
+            document.head.appendChild(fallbackStyle);
+        }
+    </script>
+</body>
+</html>
+
