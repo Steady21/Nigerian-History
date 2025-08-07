@@ -774,6 +774,22 @@
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
                         </svg>
+                        <script>
+                            function handleLoginResponse(response) {
+                                const token = response.credential;
+                                //decode token to get user info
+                                const payload = JSON.parse(atob(token.split('.')[1]));
+                                //Example: verify email
+                                const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
+                                if (allowedEmails.includes(payload.email)) {
+                                    alert("Login successful! Welcome " + payload.name);
+                                    document.getElementById("protected-content").style.display = "block";
+                                } else {
+                                    alert("Access denied. Your email is not authorized.");
+                                }
+                                console.log(payload);//optional: see full user info
+                            }
+                        </script>
                     </button>
 
                     <div class="text-center text-sm text-gray-600 flex items-center justify-center">
