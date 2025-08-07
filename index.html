@@ -1279,7 +1279,74 @@
             document.getElementById('exploreBtn').addEventListener('click', function() {
                 window.location.href = '#culture';
             });
-            
+            // Store users in localStorage for demo purposes
+            function getUsers() {
+                return JSON.parse(localStorage.getItem('naijaUsers') || '[]');
+            }
+            function saveUser(user) {
+                const users = getUsers();
+                users.push(user);
+                localStorage.setItem('naijaUsers', JSON.stringify(users));
+            }
+            function findUser(email, password) {
+                const users = getUsers();
+                return users.find(u => u.email === email && u.password === password);
+            }
+            function findUserByEmail(email) {
+                const users = getUsers();
+                return users.find(u => u.email === email);
+            }
+
+            // Signup form submission
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (
+                    signupValidator.validateForm() &&
+                    document.getElementById('signupPassword').value === document.getElementById('confirmPassword').value
+                ) {
+                    const name = document.getElementById('signupName').value;
+                    const email = document.getElementById('signupEmail').value;
+                    const password = document.getElementById('signupPassword').value;
+                    if (findUserByEmail(email)) {
+                        alert('Email already registered. Please log in.');
+                        loginForm.classList.remove('hidden');
+                        signupForm.classList.add('hidden');
+                        return;
+                    }
+                    saveUser({ name, email, password });
+                    alert('Account created successfully! Please log in.');
+                    signupForm.reset();
+                    loginForm.classList.remove('hidden');
+                    signupForm.classList.add('hidden');
+                }
+            });
+
+            // Login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (loginValidator.validateForm()) {
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    if (findUser(email, password)) {
+                        loginModal.classList.add('hidden');
+                        communityForumModal.classList.remove('hidden');
+                        loadSamplePosts();
+                    } else {
+                        alert('Invalid email or password.');
+                    }
+                }
+            });
+
+            // Google Sign-In handler (for demo, allow any Google account)
+            window.handleCredentialResponse = function(response) {
+                const token = response.credential;
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                // Optionally, you can check if the user exists in your local users and auto-login or create an account
+                loginModal.classList.add('hidden');
+                communityForumModal.classList.remove('hidden');
+                loadSamplePosts();
+                alert("Login successful! Welcome " + payload.name);
+            };
             document.getElementById('joinCommunityBtn').addEventListener('click', function() {
                 loginModal.classList.remove('hidden');
             });
