@@ -6,7 +6,19 @@
     <title>Naija Heritage | Celebrating Nigerian History and Culture</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
+    #protected-content {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #4CAF50;
+      background-color: #f9f9f9;
+    }
+    #login-section {
+      margin-top: 30px;
+    }
+  
         :root {
             --green-primary: #065F46;
             --green-secondary: #059669;
@@ -96,7 +108,75 @@
                         </button>
                         <!-- Dropdown for Google Sign In options -->
                         <div id="googleDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
-                            <button id="googleLogin" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Login with Google</button>
+                           <!-- Login Section -->
+  <div id="login-section">
+    <div id="g_id_onload"
+         data-client_id="753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <!-- Custom Login Button -->
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+  </div>
+
+  <!-- Hidden Protected Content -->
+  <div id="protected-content">
+    <h2>🎉 Welcome to the Member Area!</h2>
+    <p>This content is only visible to verified users.</p>
+    <button onclick="logout()">Log Out</button>
+  </div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      const token = response.credential;
+
+      // Decode JWT Token to get user info
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const userEmail = payload.email;
+      const userName = payload.name;
+
+      console.log("Logged in:", userEmail);
+
+      // 🔒 APPROVED USERS (choose one of these)
+      // 1. ✅ APPROVED EMAIL LIST
+      const allowedEmails = [
+        "admin@naijaheritage.ng",
+        "youremail@gmail.com"
+      ];
+
+      // 2. ✅ Or approve all emails from a domain (e.g., @naijaheritage.ng)
+      const allowedDomain = "@naijaheritage.ng";
+
+      // CHECK EMAIL ACCESS
+      const isEmailAllowed = allowedEmails.includes(userEmail) || userEmail.endsWith(allowedDomain);
+
+      if (isEmailAllowed) {
+        // Grant access
+        alert("Welcome " + userName + "!");
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("protected-content").style.display = "block";
+      } else {
+        // Deny access
+        alert("Access denied: Unauthorized email (" + userEmail + ")");
+        document.getElementById("protected-content").style.display = "none";
+      }
+    }
+
+    function logout() {
+      google.accounts.id.disableAutoSelect();
+      window.location.reload();
+    }
+  </script>
                             <button id="googleSignup" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Join with Google</button>
                         </div>
                     </div>
