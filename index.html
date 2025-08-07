@@ -67,9 +67,9 @@
                         <span class="ml-2 text-xl font-bold text-gray-900">Naija Heritage</span>
                     </div>
                     <div class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="nigerianevents.html" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Home</a>
-                        <a href="Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
-                        <a href="History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
+                        <a href="https://www.naijaheritage.ng/" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Home</a>
+                        <a href="https://www.naijaheritage.ng/Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
+                        <a href="https://www.naijaheritage.ng/History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
                         <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Food</a>
                         <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Arts</a>
                     </div>
@@ -212,9 +212,9 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="pt-2 pb-4 px-4 space-y-1">
-                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
-                <a href="C:\Users\HP-UK\Desktop\New Work\.vscode\Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
-                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
+                <a href="https://www.naijaheritage.ng" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
+                <a href="https://www.naijaheritage.ng/Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
+                <a href="https://www.naijaheritage.ng/History.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
                 <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Food</a>
                 <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
                 <div class="pt-2">
@@ -776,69 +776,69 @@
                         </svg>
                     </button>
 
-                    <div class="text-center text-sm text-gray-600 flex items-center justify-center">
+                    <div class="text-center text-sm text-gray-600">
                         Don't have an account? <a href="#" id="showSignup" class="text-green-600 hover:text-green-800 font-medium">Register</a>
                     </div>
                     <div class="mt-4 flex justify-center">
                         <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
                             <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
                             <span class="text-gray-700 font-medium">Sign in with Google</span>
-                            <script src="https://accounts.google.com/gsi/client" async defer></script>
-                            <div id="g_id_onload"
-                             data-client_id="753247570328-9rm-fo25d77n7k58l-ngn3rsqua3p7pfh3.apps.-googleusercontent.com"
-                             data-context="signin"
-                             data-UX_mode="popup"
-                             data-callback="handleCredentialResponse">
-                            </div>
-                            <div class="g_id_signin"
-                            data-type="standard"
-                            data-shape="rectangular"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-size="large"
-                            data-logo_alignment="left">
+                        </button>
+                    </div>
+                </form>
 
-                            </div>
+                <!-- Signup Form - Initially Hidden -->
+                <form id="signupForm" class="space-y-6 hidden">
+                    <div>
+                        <label for="signupName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="signupName" 
+                            name="name"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="Your Name"
+                            required
+                            minlength="3"
                             autocomplete="name"
                         >
-                        <!-- Google Sign-In Scripts (Place this once before the </body>) -->
-                        <script src="https://accounts.google.com/gsi/client" async defer></script>
-                        <script>
-                          function handleCredentialResponse(response) {
-                              const token = response.credential;
-                              const payload = JSON.parse(atob(token.split('.')[1]));
-                              const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
-
-                              if (allowedEmails.includes(payload.email)) {
-                                  alert("Login successful! Welcome " + payload.name);
-                                  document.getElementById("loginModal").style.display = "none";
-                                  document.getElementById("protected-content").style.display = "block";
-                              } else {
-                                  alert("Access denied. Your email is not authorized.");
-                              }
-
-                              console.log("User Info:", payload);
-                          }
-                        </script>
-                        <!-- Google Sign-In Configuration -->
-                        <div id="g_id_onload"
-                            data-client_id="753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com"
-                            data-context="signin"
-                            data-ux_mode="popup"
-                            data-callback="handleCredentialResponse"
-                            data-auto_prompt="false">
-                        </div>
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-shape="rectangular"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-size="large"
-                            data-logo_alignment="left">
-                        </div>
                         <p id="nameError" class="error-message mt-1 hidden">Name must be at least 3 characters</p>
                     </div>
 
+                    <div>
+                        <label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="signupEmail" 
+                            name="email"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="your@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <p id="signupEmailError" class="error-message mt-1 hidden">Please enter a valid email address</p>
+                    </div>
+
+                    <div>
+                        <label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input 
+                            type="password" 
+                            id="signupPassword" 
+                            name="password"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="••••••••"
+                            minlength="6"
+                            required
+                            autocomplete="new-password"
+                        >
+                        <p id="signupPasswordError" class="error-message mt-1 hidden">Password must be at least 6 characters</p>
+                    </div>
+
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword"
                             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                             placeholder="••••••••"
                             minlength="6"
@@ -933,12 +933,12 @@
                     <h3 class="text-lg font-semibold mb-4">Support</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
-                    <div class="mt-4 flex justify-center">
-                        <button type="button" id="signupGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
-                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
-                            <span class="text-gray-700 font-medium">Sign up with Google</span>
-                        </button>
-                    </div>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
@@ -1279,122 +1279,11 @@
             document.getElementById('exploreBtn').addEventListener('click', function() {
                 window.location.href = '#culture';
             });
-            // Store users in localStorage for demo purposes
-            function getUsers() {
-                return JSON.parse(localStorage.getItem('naijaUsers') || '[]');
-            }
-            function saveUser(user) {
-                const users = getUsers();
-                users.push(user);
-                localStorage.setItem('naijaUsers', JSON.stringify(users));
-            }
-            function findUser(email, password) {
-                const users = getUsers();
-                return users.find(u => u.email === email && u.password === password);
-            }
-            function findUserByEmail(email) {
-                const users = getUsers();
-                return users.find(u => u.email === email);
-            }
-
-            // Signup form submission
-            signupForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (
-                    signupValidator.validateForm() &&
-                    document.getElementById('signupPassword').value === document.getElementById('confirmPassword').value
-                ) {
-                    const name = document.getElementById('signupName').value;
-                    const email = document.getElementById('signupEmail').value;
-                    const password = document.getElementById('signupPassword').value;
-                    if (findUserByEmail(email)) {
-                        alert('Email already registered. Please log in.');
-                        loginForm.classList.remove('hidden');
-                        signupForm.classList.add('hidden');
-                        return;
-                    }
-                    saveUser({ name, email, password });
-                    alert('Account created successfully! Please log in.');
-                    signupForm.reset();
-                    loginForm.classList.remove('hidden');
-                    signupForm.classList.add('hidden');
-                }
-            });
-
-            // Login form submission
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (loginValidator.validateForm()) {
-                    const email = document.getElementById('loginEmail').value;
-                    const password = document.getElementById('loginPassword').value;
-                    if (findUser(email, password)) {
-                        loginModal.classList.add('hidden');
-                        communityForumModal.classList.remove('hidden');
-                        loadSamplePosts();
-                    } else {
-                        alert('Invalid email or password.');
-                    }
-                }
-            });
-
-            // Google Sign-In handler (for demo, allow any Google account)
-            window.handleCredentialResponse = function(response) {
-                const token = response.credential;
-                const payload = JSON.parse(atob(token.split('.')[1]));
-                // Optionally, you can check if the user exists in your local users and auto-login or create an account
-                loginModal.classList.add('hidden');
-                communityForumModal.classList.remove('hidden');
-                loadSamplePosts();
-                alert("Login successful! Welcome " + payload.name);
-            };
+            
             document.getElementById('joinCommunityBtn').addEventListener('click', function() {
                 loginModal.classList.remove('hidden');
             });
         });
     </script>
-</body>
-</html>
-<!-- Place Google Sign-In scripts and handler ONCE before closing body tag -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script>
-    function handleCredentialResponse(response) {
-        const token = response.credential;
-        const payload = JSON.parse(atob(token.split('.')[1]));
-        const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
-        if (allowedEmails.includes(payload.email)) {
-            alert("Login successful! Welcome " + payload.name);
-            document.getElementById("loginModal").classList.add("hidden");
-            // Optionally show protected content or redirect
-        } else {
-            alert("Access denied. Your email is not authorized.");
-        }
-        console.log("User Info:", payload);
-    }
-    // Attach Google Sign-In to login/signup Google buttons
-    document.addEventListener('DOMContentLoaded', function() {
-        const loginGoogleBtn = document.getElementById('loginGoogleBtn');
-        const signupGoogleBtn = document.getElementById('signupGoogleBtn');
-        if (loginGoogleBtn) {
-            loginGoogleBtn.addEventListener('click', function() {
-                google.accounts.id.initialize({
-                    client_id: "753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com",
-                    callback: handleCredentialResponse,
-                    ux_mode: "popup"
-                });
-                google.accounts.id.prompt();
-            });
-        }
-        if (signupGoogleBtn) {
-            signupGoogleBtn.addEventListener('click', function() {
-                google.accounts.id.initialize({
-                    client_id: "753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com",
-                    callback: handleCredentialResponse,
-                    ux_mode: "popup"
-                });
-                google.accounts.id.prompt();
-            });
-        }
-    });
-</script>
 </body>
 </html>
