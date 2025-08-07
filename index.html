@@ -779,10 +779,32 @@
                     <div class="text-center text-sm text-gray-600">
                         Don't have an account? <a href="#" id="showSignup" class="text-green-600 hover:text-green-800 font-medium">Register</a>
                     </div>
-                    <div class="mt-4 flex justify-center">
+                     <div class="mt-4 flex justify-center">
                         <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
                             <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
                             <span class="text-gray-700 font-medium">Sign in with Google</span>
+                            <script src="https://accounts.google.com/gsi/client" async defer></script>
+                            <div id="g_id_onload"
+                             data-client_id="753247570328-9rm-fo25d77n7k58l-ngn3rsqua3p7pfh3.apps.-googleusercontent.com"
+                             data-context="signin"
+                             data-UX_mode="popup"
+                             data-callback="handleCredentialResponse">
+                            </div>
+                            <div class="g_id_signin"
+                            data-type="standard"
+                            data-shape="rectangular"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-size="large"
+                            data-logo_alignment="left">
+
+                            </div>
+                            </div>
+                            <script>
+                                function handleCredentialResponse(response) {
+                                    console.log("Encoded JWT ID token: "+ response.credential);
+                                }
+                            </script>
                         </button>
                     </div>
                 </form>
