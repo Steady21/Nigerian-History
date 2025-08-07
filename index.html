@@ -6,19 +6,7 @@
     <title>Naija Heritage | Celebrating Nigerian History and Culture</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
-    #protected-content {
-      display: none;
-      margin-top: 20px;
-      padding: 15px;
-      border: 2px solid #4CAF50;
-      background-color: #f9f9f9;
-    }
-    #login-section {
-      margin-top: 30px;
-    }
-  
         :root {
             --green-primary: #065F46;
             --green-secondary: #059669;
@@ -80,8 +68,8 @@
                     </div>
                     <div class="hidden md:ml-6 md:flex md:space-x-8">
                         <a href="nigerianevents.html" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Home</a>
-                        <a href="https://www.naijaheritage.ng/Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
-                        <a href="https://www.naijaheritage.ng/History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
+                        <a href="Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
+                        <a href="History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
                         <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Food</a>
                         <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Arts</a>
                     </div>
@@ -108,75 +96,7 @@
                         </button>
                         <!-- Dropdown for Google Sign In options -->
                         <div id="googleDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
-                           <!-- Login Section -->
-  <div id="login-section">
-    <div id="g_id_onload"
-         data-client_id="753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
-
-    <!-- Custom Login Button -->
-    <div class="g_id_signin"
-         data-type="standard"
-         data-shape="rectangular"
-         data-theme="outline"
-         data-text="signin_with"
-         data-size="large"
-         data-logo_alignment="left">
-    </div>
-  </div>
-
-  <!-- Hidden Protected Content -->
-  <div id="protected-content">
-    <h2>🎉 Welcome to the Member Area!</h2>
-    <p>This content is only visible to verified users.</p>
-    <button onclick="logout()">Log Out</button>
-  </div>
-
-  <script>
-    function handleCredentialResponse(response) {
-      const token = response.credential;
-
-      // Decode JWT Token to get user info
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      const userEmail = payload.email;
-      const userName = payload.name;
-
-      console.log("Logged in:", userEmail);
-
-      // 🔒 APPROVED USERS (choose one of these)
-      // 1. ✅ APPROVED EMAIL LIST
-      const allowedEmails = [
-        "admin@naijaheritage.ng",
-        "youremail@gmail.com"
-      ];
-
-      // 2. ✅ Or approve all emails from a domain (e.g., @naijaheritage.ng)
-      const allowedDomain = "@naijaheritage.ng";
-
-      // CHECK EMAIL ACCESS
-      const isEmailAllowed = allowedEmails.includes(userEmail) || userEmail.endsWith(allowedDomain);
-
-      if (isEmailAllowed) {
-        // Grant access
-        alert("Welcome " + userName + "!");
-        document.getElementById("login-section").style.display = "none";
-        document.getElementById("protected-content").style.display = "block";
-      } else {
-        // Deny access
-        alert("Access denied: Unauthorized email (" + userEmail + ")");
-        document.getElementById("protected-content").style.display = "none";
-      }
-    }
-
-    function logout() {
-      google.accounts.id.disableAutoSelect();
-      window.location.reload();
-    }
-  </script>
+                            <button id="googleLogin" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Login with Google</button>
                             <button id="googleSignup" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Join with Google</button>
                         </div>
                     </div>
@@ -293,8 +213,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="pt-2 pb-4 px-4 space-y-1">
                 <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
-                <a href="https://www.naijaheritage.ng/Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
-                <a href="https://www.naijaheritage.ng/History.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
+                <a href="C:\Users\HP-UK\Desktop\New Work\.vscode\Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
                 <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Food</a>
                 <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
                 <div class="pt-2">
@@ -796,45 +716,114 @@
     </div>
 
     <!-- Login Modal - From your original code -->
-    <div class="mt-4 flex justify-center">
-    <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
-        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
-        <span class="text-gray-700 font-medium">Sign in with Google</span>
-        <script src="https://accounts.google.com/gsi/client" async defer></script>
-        <div id="g_id_onload"
-         data-client_id="753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin"
-         data-type="standard"
-         data-shape="rectangular"
-         data-theme="outline"
-         data-text="sign_in_with"
-         data-size="large"
-         data-logo_alignment="left">
-        </div>
-        <script>
-            function handleCredentialResponse(response) {
-                const token = response.credential;
-                const payload = JSON.parse(atob(token.split('.')[1]));
-                const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="login-container rounded-xl shadow-2xl overflow-hidden w-full max-w-md">
+            <div class="p-8">
+                <div class="flex justify-end">
+                    <button id="closeLoginModal" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
                 
-                if (allowedEmails.includes(payload.email)) {
-                    alert("Login successful! Welcome " + payload.name);
-                    document.getElementById("loginModal").style.display = "none";
-                    document.getElementById("protected-content").style.display = "block";
-                } else {
-                    alert("Access denied. Your email is not authorized.");
-                }
+                <div class="text-center mb-8">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4384de7e-769b-4a48-9504-9a015981a883.png" alt="Naija Heritage logo - green background with white NH letters" class="mx-auto h-20 w-20 rounded-full mb-4">
+                    <h2 class="text-3xl font-bold text-gray-800">Naija Heritage</h2>
+                    <p class="text-gray-600">Share your Nigerian experiences and connect with others</p>
+                </div>
 
-                console.log("Logged in:", payload);
-            }
-        </script>
-    </button>
-</div>
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            name="email"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="your@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <p id="loginEmailError" class="error-message mt-1 hidden">Please enter a valid email address</p>
+                    </div>
+
+                    <div>
+                        <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            name="password"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="••••••••"
+                            minlength="6"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <p id="loginPasswordError" class="error-message mt-1 hidden">Password must be at least 6 characters</p>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        id="loginButton"
+                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300 flex items-center justify-center"
+                        disabled
+                    >
+                        <span id="loginBtnText">Login</span>
+                        <svg id="loginBtnSpinner" class="animate-spin h-5 w-5 ml-2 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                        </svg>
+                        <script>
+                            function handleLoginResponse(response) {
+                                const token = response.credential;
+                                //decode token to get user info
+                                const payload = JSON.parse(atob(token.split('.')[1]));
+                                //Example: verify email
+                                const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
+                                if (allowedEmails.includes(payload.email)) {
+                                    alert("Login successful! Welcome " + payload.name);
+                                    document.getElementById("protected-content").style.display = "block";
+                                } else {
+                                    alert("Access denied. Your email is not authorized.");
+                                }
+                                console.log(payload);//optional: see full user info
+                            }
+                        </script>
+                    </button>
+
+                    <div class="text-center text-sm text-gray-600 flex items-center justify-center">
+                        Don't have an account? <a href="#" id="showSignup" class="text-green-600 hover:text-green-800 font-medium">Register</a>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                        <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
+                            <span class="text-gray-700 font-medium">Sign in with Google</span>
+                            <script src="https://accounts.google.com/gsi/client" async defer></script>
+                            <div id="g_id_onload"
+                             data-client_id="753247570328-9rm-fo25d77n7k58l-ngn3rsqua3p7pfh3.apps.-googleusercontent.com"
+                             data-context="signin"
+                             data-UX_mode="popup"
+                             data-callback="handleCredentialResponse">
+                            </div>
+                            <div class="g_id_signin"
+                            data-type="standard"
+                            data-shape="rectangular"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-size="large"
+                            data-logo_alignment="left">
+
+                            </div>
+                            </div>
+                            <script>
+                                function handleCredentialResponse(response) {
+                                    console.log("Encoded JWT ID token: "+ response.credential);
+                                }
+                            </script>
+                        </button>
+                    </div>
+                </form>
 
                 <!-- Signup Form - Initially Hidden -->
                 <form id="signupForm" class="space-y-6 hidden">
@@ -850,6 +839,41 @@
                             minlength="3"
                             autocomplete="name"
                         >
+                        <!-- Google Sign-In Scripts (Place this once before the </body>) -->
+                        <script src="https://accounts.google.com/gsi/client" async defer></script>
+                        <script>
+                          function handleCredentialResponse(response) {
+                              const token = response.credential;
+                              const payload = JSON.parse(atob(token.split('.')[1]));
+                              const allowedEmails = ["naijahe1@naijaheritage.ng", "steadyboy229@gmail.com"];
+
+                              if (allowedEmails.includes(payload.email)) {
+                                  alert("Login successful! Welcome " + payload.name);
+                                  document.getElementById("loginModal").style.display = "none";
+                                  document.getElementById("protected-content").style.display = "block";
+                              } else {
+                                  alert("Access denied. Your email is not authorized.");
+                              }
+
+                              console.log("User Info:", payload);
+                          }
+                        </script>
+                        <!-- Google Sign-In Configuration -->
+                        <div id="g_id_onload"
+                            data-client_id="753247570328-9rmf025d77n7k58lngn3rsqua3p7pfh3.apps.googleusercontent.com"
+                            data-context="signin"
+                            data-ux_mode="popup"
+                            data-callback="handleCredentialResponse"
+                            data-auto_prompt="false">
+                        </div>
+                        <div class="g_id_signin"
+                            data-type="standard"
+                            data-shape="rectangular"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-size="large"
+                            data-logo_alignment="left">
+                        </div>
                         <p id="nameError" class="error-message mt-1 hidden">Name must be at least 3 characters</p>
                     </div>
 
@@ -908,31 +932,17 @@
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
                         </svg>
                     </button>
-                    <div class="text-center text-sm text-gray-600" flex items-center justify-center>
+
+                    <div class="mt-4 flex justify-center">
+                        <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
+                            <span class="text-gray-700 font-medium">Sign up with Google</span>
+                        </button>
+                    </div>
+
+                    <div class="text-center text-sm text-gray-600">
                         Already have an account? <a href="#" id="showLogin" class="text-green-600 hover:text-green-800 font-medium">Login</a>
                     </div>
-                            <script src="https://accounts.google.com/gsi/client" async defer></script>
-                            <div id="g_id_onload"
-                             data-client_id="753247570328-9rm-fo25d77n7k58l-ngn3rsqua3p7pfh3.apps.-googleusercontent.com"
-                             data-context="signin"
-                             data-UX_mode="popup"
-                             data-callback="handleCredentialResponse">
-                            </div>
-                            <div class="g_id_signin"
-                            data-type="standard"
-                            data-shape="rectangular"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-size="large"
-                            data-logo_alignment="left">
-
-                            </div>
-                            </div>
-                            <script>
-                                function handleCredentialResponse(response) {
-                                    console.log("Encoded JWT ID token: "+ response.credential);
-                                }
-                            </script>
                 </form>
             </div>
         </div>
