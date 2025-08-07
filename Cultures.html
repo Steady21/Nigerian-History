@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naija Heritage | Celebrating Nigerian Cultures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-primary: #065F46;
+            --green-secondary: #059669;
+            --gold: #DAA520;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://civilisable.com/wp-content/uploads/2024/03/Nigerian-Culture-21.03.2024.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        
+        .nav-link:hover {
+            color: var(--gold);
+        }
+        
+        .btn-primary {
+            background-color: var(--green-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--green-secondary);
+        }
+        
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-error {
+            border-color: #ef4444;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdoO-4yThTvoEMaiBbZx9mYs68zES7MUxoOA&s" alt="Naija Heritage logo - Nigerian flag colors and cultural symbols" class="h-8 w-auto">
+                        <span class="ml-2 text-xl font-bold text-gray-900">Naija Heritage</span>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="nigerianevents.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Home</a>
+                        <a href="#" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Culture</a>
+                        <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
+                        <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Food</a>
+                        <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Arts</a>
+                    </div>
+                </div>
+                <!-- Right Navigation -->
+                <!--<div class="hidden md:flex items-center space-x-4">
+                    <button id="loginNavBtn" class="text-gray-900 font-medium hover:text-green-600">Login</button>
+                    <button id="signupNavBtn" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300">Join Now</button>
+                    <div class="relative">
+                        <button id="googleAuthBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
+                            <span class="text-gray-700 font-medium">Sign in with Google</span>
+                        </button>
+                        
+                        <div id="googleDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
+                            <button id="googleLogin" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Login with Google</button>
+                            <button id="googleSignup" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Join with Google</button>
+                        </div>
+                    </div> -->
+                </div>
+                <script>
+                    // Google Auth dropdown logic
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const googleAuthBtn = document.getElementById('googleAuthBtn');
+                        const googleDropdown = document.getElementById('googleDropdown');
+                        const googleLogin = document.getElementById('googleLogin');
+                        const googleSignup = document.getElementById('googleSignup');
+
+                        googleAuthBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            googleDropdown.classList.toggle('hidden');
+                        });
+
+                        // Hide dropdown when clicking outside
+                        document.addEventListener('click', function(e) {
+                            if (!googleDropdown.classList.contains('hidden')) {
+                                googleDropdown.classList.add('hidden');
+                            }
+                        });
+
+                        googleLogin.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            // Trigger login modal and optionally Google login logic
+                            document.getElementById('loginModal').classList.remove('hidden');
+                            document.getElementById('loginForm').classList.remove('hidden');
+                            document.getElementById('signupForm').classList.add('hidden');
+                            googleDropdown.classList.add('hidden');
+                            // Add Google login logic here
+                        });
+
+                        googleSignup.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            document.getElementById('loginModal').classList.remove('hidden');
+                            document.getElementById('loginForm').classList.add('hidden');
+                            document.getElementById('signupForm').classList.remove('hidden');
+                            googleDropdown.classList.add('hidden');
+                            // Add Google signup logic here
+                        });
+                    });
+                </script>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="pt-2 pb-4 px-4 space-y-1">
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Food</a>
+                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
+             <!-- <div class="pt-2">
+                    <button id="mobileLoginBtn" class="block w-full text-left pl-3 pr-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-50">Login</button>
+                    <button id="mobileSignupBtn" class="block w-full text-left pl-3 pr-4 py-2 text-base font-medium text-green-600 hover:bg-gray-50">Sign Up</button>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-bg py-20 px-4 sm:px-6 lg:px-8 text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Explore Nigerian Cultures</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Dive into the diverse customs, languages, festivals, and heritage of Nigeria’s many ethnic groups.</p>
+            <!-- <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button id="exploreBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">Explore Cultures</button>
+                <button id="joinCommunityBtn" class="bg-white hover:bg-gray-100 text-green-700 font-bold py-3 px-6 rounded-full border border-green-700 transition duration-300">Join Our Community</button>
+            </div> -->
+        </div>
+    </div>
+    <!-- Interactive Map of Nigeria -->
+    <section class="py-16 bg-white" id="nigeria-map">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Explore Nigeria's Regions</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Click on a region to learn about its culture, languages, and highlights.
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="relative w-full max-w-2xl">
+                    <!-- SVG Map of Nigeria -->
+                    <svg id="nigeria-svg-map" viewBox="0 0 600 600" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                        <!-- North West -->
+                        <path id="region-nw" d="M80,120 L180,100 L220,180 L160,220 L100,180 Z"
+                            fill="#059669" class="cursor-pointer hover:opacity-80 transition" data-region="North West"/>
+                        <!-- North East -->
+                        <path id="region-ne" d="M220,180 L320,120 L400,180 L340,240 L260,220 Z"
+                            fill="#34d399" class="cursor-pointer hover:opacity-80 transition" data-region="North East"/>
+                        <!-- North Central -->
+                        <path id="region-nc" d="M160,220 L260,220 L340,240 L320,320 L220,320 L180,260 Z"
+                            fill="#10b981" class="cursor-pointer hover:opacity-80 transition" data-region="North Central"/>
+                        <!-- South West -->
+                        <path id="region-sw" d="M100,180 L160,220 L180,260 L120,340 L60,280 Z"
+                            fill="#f59e42" class="cursor-pointer hover:opacity-80 transition" data-region="South West"/>
+                        <!-- South East -->
+                        <path id="region-se" d="M320,320 L400,340 L420,420 L340,400 L220,320 Z"
+                            fill="#fbbf24" class="cursor-pointer hover:opacity-80 transition" data-region="South East"/>
+                        <!-- South South -->
+                        <path id="region-ss" d="M120,340 L220,320 L340,400 L260,480 L140,420 Z"
+                            fill="#eab308" class="cursor-pointer hover:opacity-80 transition" data-region="South South"/>
+                        <!-- Labels (for accessibility) -->
+                        <text x="120" y="160" font-size="18" fill="#fff">NW</text>
+                        <text x="300" y="160" font-size="18" fill="#fff">NE</text>
+                        <text x="220" y="260" font-size="18" fill="#fff">NC</text>
+                        <text x="100" y="260" font-size="18" fill="#fff">SW</text>
+                        <text x="350" y="370" font-size="18" fill="#fff">SE</text>
+                        <text x="180" y="400" font-size="18" fill="#fff">SS</text>
+                    </svg>
+                </div>
+                <div id="region-info" class="mt-8 w-full max-w-xl bg-gray-100 rounded-lg shadow p-6 text-center transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-green-800 mb-2">Select a region</h3>
+                    <p class="text-gray-700">Click on a region above to see details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const regionData = {
+                "North West": {
+                    title: "North West",
+                    content: `
+                        <p class="mb-2">Known for Hausa and Fulani cultures, vibrant festivals, and historic cities like Kano and Sokoto.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Hausa, Fulfulde</li>
+                            <li>Highlights: Durbar Festival, ancient city walls, leatherwork</li>
+                        </ul>
+                    `
+                },
+                "North East": {
+                    title: "North East",
+                    content: `
+                        <p class="mb-2">Rich Kanuri, Fulani, and other ethnic traditions. Famous for the Sahel landscape and ancient Borno Empire.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Kanuri, Hausa, Fulfulde</li>
+                            <li>Highlights: Yankari Game Reserve, Borno history, pottery</li>
+                        </ul>
+                    `
+                },
+                "North Central": {
+                    title: "North Central",
+                    content: `
+                        <p class="mb-2">A melting pot of cultures, home to Abuja (the capital), Tiv, Nupe, and Gwari peoples.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Tiv, Nupe, Gwari, Hausa</li>
+                            <li>Highlights: Zuma Rock, Abuja city, Benue River</li>
+                        </ul>
+                    `
+                },
+                "South West": {
+                    title: "South West",
+                    content: `
+                        <p class="mb-2">Heartland of Yoruba culture, bustling cities, and rich artistic heritage.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Yoruba, English</li>
+                            <li>Highlights: Osun-Osogbo Festival, Lagos, Ife bronze heads</li>
+                        </ul>
+                    `
+                },
+                "South East": {
+                    title: "South East",
+                    content: `
+                        <p class="mb-2">Igbo traditions, colorful masquerades, and entrepreneurial spirit define this region.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Igbo, English</li>
+                            <li>Highlights: New Yam Festival, Arochukwu caves, arts & crafts</li>
+                        </ul>
+                    `
+                },
+                "South South": {
+                    title: "South South",
+                    content: `
+                        <p class="mb-2">Diverse ethnic groups, oil-rich lands, and vibrant riverine cultures.</p>
+                        <ul class="list-disc pl-6 text-left text-gray-600">
+                            <li>Languages: Ijaw, Ibibio, Edo, English</li>
+                            <li>Highlights: Niger Delta, Calabar Carnival, seafood cuisine</li>
+                        </ul>
+                    `
+                }
+            };
+
+            const regionInfo = document.getElementById('region-info');
+            document.getElementById('nigeria-svg-map').addEventListener('click', function(e) {
+                if (e.target.dataset.region) {
+                    const region = e.target.dataset.region;
+                    regionInfo.innerHTML = `
+                        <h3 class="text-2xl font-bold text-green-800 mb-2">${regionData[region].title}</h3>
+                        ${regionData[region].content}
+                    `;
+                }
+            });
+        });
+    </script>
+     <!-- Culture of the Week Spotlight -->
+    <div class="py-12 bg-green-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 rounded-xl shadow-lg">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-green-800">Culture of the Week: Yoruba</h2>
+                <p class="mt-2 text-lg text-green-700">Spotlighting the vibrant Yoruba culture, its traditions, language, and influence across Nigeria and the diaspora.</p>
+            </div>
+            <div class="md:flex md:items-center gap-8">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="https://cdn.businessday.ng/wp-content/uploads/2024/06/Untitled-design-2024-06-21T110004.686-1.png" alt="Yoruba cultural festival with people in traditional attire" class="rounded-lg shadow w-full h-64 object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold text-green-900 mb-2">Key Features</h3>
+                    <ul class="list-disc pl-6 text-green-800 mb-4 text-left">
+                        <li>Language: Yoruba</li>
+                        <li>Popular Festivals: Osun-Osogbo, Eyo, Olojo</li>
+                        <li>Traditional Attire: Aso-Oke, Agbada, Gele</li>
+                        <li>Famous Cuisine: Amala, Ewedu, Ofada rice</li>
+                        <li>Arts: Beadwork, Batik, Bronze heads</li>
+                    </ul>
+                    <p class="text-green-700 mb-4">Yoruba culture is renowned for its storytelling, music, and elaborate ceremonies. Its influence can be seen in art, religion, and language across West Africa and beyond.</p>
+                    <a href="#" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                        Explore Yoruba Culture
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Nigerian Proverbs Section -->
+    <div class="py-12 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-green-800">Popular Nigerian Proverbs</h2>
+                <p class="mt-4 text-lg text-green-700 max-w-2xl mx-auto">
+                    Discover the wisdom of Nigeria’s cultures through their most famous proverbs and meanings.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Yoruba Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Yoruba</h3>
+                    <p class="font-medium mb-2">"Bí a kó bá mọ ìtàn ìbí a tí ńbọ, a kò lè mọ ìbí tí a ńlọ."</p>
+                    <p class="text-gray-700 mb-2 italic">("If you don’t know where you are coming from, you won’t know where you are going.")</p>
+                    <p class="text-gray-600">Meaning: Value your roots and history to guide your future.</p>
+                </div>
+                <!-- Igbo Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Igbo</h3>
+                    <p class="font-medium mb-2">"A kụkọtara ọnụ, e mee ka ọ dị mma."</p>
+                    <p class="text-gray-700 mb-2 italic">("When people come together, things get better.")</p>
+                    <p class="text-gray-600">Meaning: Unity and collaboration bring progress.</p>
+                </div>
+                <!-- Hausa Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Hausa</h3>
+                    <p class="font-medium mb-2">"Ruwa baya tsami da magani."</p>
+                    <p class="text-gray-700 mb-2 italic">("Water does not get sour with medicine.")</p>
+                    <p class="text-gray-600">Meaning: Good advice or help never spoils a situation.</p>
+                </div>
+                <!-- Edo Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Edo</h3>
+                    <p class="font-medium mb-2">"Oba nor dey go transfer."</p>
+                    <p class="text-gray-700 mb-2 italic">("The king does not get transferred.")</p>
+                    <p class="text-gray-600">Meaning: True leadership is rooted and stable.</p>
+                </div>
+                <!-- Tiv Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Tiv</h3>
+                    <p class="font-medium mb-2">"Aondo u sha u dedoo."</p>
+                    <p class="text-gray-700 mb-2 italic">("God’s time is the best.")</p>
+                    <p class="text-gray-600">Meaning: Patience brings good results; trust in divine timing.</p>
+                </div>
+                <!-- Ibibio Proverb -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Ibibio</h3>
+                    <p class="font-medium mb-2">"Ekpe ke ekpe, ekpe ke idem."</p>
+                    <p class="text-gray-700 mb-2 italic">("A monkey does not forget its own kind.")</p>
+                    <p class="text-gray-600">Meaning: People should remember and support their community.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Animated Folktales & Oral Stories Section -->
+    <div class="py-12 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-green-800">Animated Folktales & Oral Stories</h2>
+                <p class="mt-4 text-lg text-green-700 max-w-2xl mx-auto">
+                    Discover the rich oral histories and folktales from Nigeria's diverse cultures, brought to life with animation and narration.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Yoruba Folktale -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-56 w-full flex items-center justify-center bg-green-100">
+                        <iframe src="https://www.youtube.com/embed/1wX6h6w8T9g" title="Yoruba Folktale Animation" class="w-full h-full"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2">Yoruba: The Tortoise and the Drum</h3>
+                        <p class="text-gray-700 mb-4">A classic tale of wit and wisdom, teaching lessons about greed and cleverness.</p>
+                        <a href="#" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                            Watch & Learn
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Igbo Folktale -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-56 w-full flex items-center justify-center bg-green-100">
+                        <iframe src="https://www.youtube.com/embed/3h8QwQwQwQw" title="Igbo Folktale Animation" class="w-full h-full"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2">Igbo: The Wise Woman of Arochukwu</h3>
+                        <p class="text-gray-700 mb-4">A story of courage and wisdom, passed down through generations in Igbo land.</p>
+                        <a href="#" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                            Watch & Learn
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Hausa Folktale -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-56 w-full flex items-center justify-center bg-green-100">
+                        <iframe src="https://www.youtube.com/embed/2yX6h6w8T9g" title="Hausa Folktale Animation" class="w-full h-full"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2">Hausa: The Lion and the Clever Rabbit</h3>
+                        <p class="text-gray-700 mb-4">A tale of bravery and intelligence, showing how wit can overcome strength.</p>
+                        <a href="#" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                            Watch & Learn
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                    Explore More Stories
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">What Our Community Says</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Join thousands of Naija descendants and culture enthusiasts</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/024/983/914/small_2x/simple-user-default-icon-free-png.png" alt="Portrait of Adeola Adegoke smiling, a Nigerian businesswoman based in London" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Adeola Adegoke</h4>
+                            <p class="text-gray-600 text-sm">Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"As someone born abroad, Naija Heritage helped me reconnect with my roots in ways I never imagined. The cultural resources are invaluable!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/024/983/914/small_2x/simple-user-default-icon-free-png.png" alt="Portrait of Chinedu Okoro wearing traditional Igbo attire with cultural beads" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Chinedu Okoro</h4>
+                            <p class="text-gray-600 text-sm">Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The community features allowed me to connect with others who share my passion for preserving our cultural heritage. Truly inspiring!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/024/983/914/small_2x/simple-user-default-icon-free-png.png" alt="Portrait of Jasmine Kalu, a Nigerian-American woman based in New York wearing modern Afrocentric fashion" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Jasmine Kalu</h4>
+                            <p class="text-gray-600 text-sm">New York, USA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Naija Heritage has been an amazing resource for me to teach my children about our culture and traditions. Highly recommended!"</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.980 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal - From your original code -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="login-container rounded-xl shadow-2xl overflow-hidden w-full max-w-md">
+            <div class="p-8">
+                <div class="flex justify-end">
+                    <button id="closeLoginModal" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="text-center mb-8">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4384de7e-769b-4a48-9504-9a015981a883.png" alt="Naija Heritage logo - green background with white NH letters" class="mx-auto h-20 w-20 rounded-full mb-4">
+                    <h2 class="text-3xl font-bold text-gray-800">Naija Heritage</h2>
+                    <p class="text-gray-600">Share your Nigerian experiences and connect with others</p>
+                </div>
+
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            name="email"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="your@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <p id="loginEmailError" class="error-message mt-1 hidden">Please enter a valid email address</p>
+                    </div>
+
+                    <div>
+                        <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            name="password"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="••••••••"
+                            minlength="6"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <p id="loginPasswordError" class="error-message mt-1 hidden">Password must be at least 6 characters</p>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        id="loginButton"
+                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300"
+                        disabled
+                    >
+                        Login
+                    </button>
+
+                    <div class="text-center text-sm text-gray-600">
+                        Don't have an account? <a href="#" id="showSignup" class="text-green-600 hover:text-green-800 font-medium">Register</a>
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                        <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
+                            <span class="text-gray-700 font-medium">Sign in with Google</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Signup Form - Initially Hidden -->
+                <form id="signupForm" class="space-y-6 hidden">
+                    <div>
+                        <label for="signupName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="signupName" 
+                            name="name"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="Your Name"
+                            required
+                            minlength="3"
+                            autocomplete="name"
+                        >
+                        <p id="nameError" class="error-message mt-1 hidden">Name must be at least 3 characters</p>
+                    </div>
+
+                    <div>
+                        <label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="signupEmail" 
+                            name="email"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="your@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                        <p id="signupEmailError" class="error-message mt-1 hidden">Please enter a valid email address</p>
+                    </div>
+
+                    <div>
+                        <label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input 
+                            type="password" 
+                            id="signupPassword" 
+                            name="password"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="••••••••"
+                            minlength="6"
+                            required
+                            autocomplete="new-password"
+                        >
+                        <p id="signupPasswordError" class="error-message mt-1 hidden">Password must be at least 6 characters</p>
+                    </div>
+
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            placeholder="••••••••"
+                            minlength="6"
+                            required
+                        >
+                        <p id="confirmPasswordError" class="error-message mt-1 hidden">Passwords must match</p>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        id="signupButton"
+                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300"
+                        disabled
+                    >
+                        Create Account
+                    </button>
+
+                    <div class="mt-4 flex justify-center">
+                        <button type="button" id="loginGoogleBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
+                            <span class="text-gray-700 font-medium">Sign up with Google</span>
+                        </button>
+                    </div>
+
+                    <div class="text-center text-sm text-gray-600">
+                        Already have an account? <a href="#" id="showLogin" class="text-green-600 hover:text-green-800 font-medium">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdoO-4yThTvoEMaiBbZx9mYs68zES7MUxoOA&s" alt="Naija Heritage logo in white on dark background" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold">Naija Heritage</span>
+                    </div>
+                    <p class="mt-4 text-gray-400">
+                        Celebrating the richness of Nigerian culture, history, and traditions. Connecting the diaspora with their roots and promoting cultural appreciation worldwide.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.53 7.477c-.376-.376-.984-.376-1.36 0l-4.17 4.17-4.17-4.17a.96.96 0 0 0-1.36 1.36l4.17 4.17-4.17 4.17a.96.96 0 1 0 1.36 1.36l4.17-4.17 4.17 4.17a.96.96 0 1 0 1.36-1.36l-4.17-4.17 4.17-4.17a.96.96 0 0 0 0-1.36z"/>
+                            </svg>
+                        </a>
+                       
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Culture</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">History</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Music</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Dance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Arts & Crafts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Forums</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Get Involved</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contribute</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; 2023 Naija Heritage. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Use</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Community Forum Modal (From your original code) -->
+    <div id="communityForumModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-green-800">Naija Stories</h2>
+                <button id="closeForumModal" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <button id="createPostBtn" class="mb-6 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                Share Your Story
+            </button>
+
+            <!-- Post Creation Modal -->
+            <div id="postModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+                <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                    <h3 class="text-xl font-bold mb-4">Share Your Experience</h3>
+                    <form id="postForm">
+                        <textarea id="postContent" rows="5" class="w-full p-3 border rounded mb-4" placeholder="What's your Nigerian experience?"></textarea>
+                        <div class="flex justify-end space-x-3">
+                            <button type="button" id="cancelPost" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">Cancel</button>
+                            <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="postsFeed" class="space-y-6">
+                <!-- Sample posts will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Login/Signup modal handlers
+            const loginModal = document.getElementById('loginModal');
+            const loginNavBtn = document.getElementById('loginNavBtn');
+            const signupNavBtn = document.getElementById('signupNavBtn');
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+            const mobileSignupBtn = document.getElementById('mobileSignupBtn');
+            const closeLoginModal = document.getElementById('closeLoginModal');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const showLogin = document.getElementById('showLogin');
+            const showSignup = document.getElementById('showSignup');
+            const loginButton = document.getElementById('loginButton');
+            const signupButton = document.getElementById('signupButton');
+            
+            // Show login modal
+            const showLoginModal = () => {
+                loginModal.classList.remove('hidden');
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                mobileMenu.classList.add('hidden');
+            };
+            
+            // Show signup form
+            const showSignupForm = () => {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+            };
+            
+            loginNavBtn.addEventListener('click', showLoginModal);
+            mobileLoginBtn.addEventListener('click', showLoginModal);
+            
+            signupNavBtn.addEventListener('click', function() {
+                loginModal.classList.remove('hidden');
+                showSignupForm();
+                mobileMenu.classList.add('hidden');
+            });
+            
+            mobileSignupBtn.addEventListener('click', function() {
+                loginModal.classList.remove('hidden');
+                showSignupForm();
+                mobileMenu.classList.add('hidden');
+            });
+            
+            closeLoginModal.addEventListener('click', function() {
+                loginModal.classList.add('hidden');
+            });
+            
+            showSignup.addEventListener('click', function(e) {
+                e.preventDefault();
+                showSignupForm();
+            });
+            
+            showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            });
+
+            // Community forum modal
+            const communityForumModal = document.getElementById('communityForumModal');
+            const closeForumModal = document.getElementById('closeForumModal');
+            
+            // Post modal
+            const postModal = document.getElementById('postModal');
+            const cancelPost = document.getElementById('cancelPost');
+            
+            // Show forum modal after successful login
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (loginValidator.validateForm()) {
+                    loginModal.classList.add('hidden');
+                    communityForumModal.classList.remove('hidden');
+                    loadSamplePosts();
+                }
+            });
+            
+            // Show post creation modal
+            document.getElementById('createPostBtn').addEventListener('click', function() {
+                postModal.classList.remove('hidden');
+            });
+            
+            // Close post modal
+            cancelPost.addEventListener('click', function() {
+                postModal.classList.add('hidden');
+            });
+            
+            // Close forum modal
+            closeForumModal.addEventListener('click', function() {
+                communityForumModal.classList.add('hidden');
+            });
+            
+            // Form validation (from your original code)
+            class FormValidator {
+                constructor(formId, inputIds, errorIds, submitButton) {
+                    this.form = document.getElementById(formId);
+                    this.inputs = inputIds.map(id => document.getElementById(id));
+                    this.errors = errorIds.map(id => document.getElementById(id));
+                    this.submitButton = submitButton;
+                    
+                    this.setupValidation();
+                }
+                
+                setupValidation() {
+                    this.inputs.forEach(input => {
+                        input.addEventListener('input', () => this.validateForm());
+                    });
+                }
+                
+                validateForm() {
+                    let isValid = true;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    this.inputs.forEach((input, index) => {
+                        if (input.id.includes('Email') && !emailRegex.test(input.value)) {
+                            input.classList.add('input-error');
+                            this.errors[index].classList.remove('hidden');
+                            isValid = false;
+                        } else if (input.value.length < (input.id.includes('Name') ? 3 : 6)) {
+                            input.classList.add('input-error');
+                            this.errors[index].classList.remove('hidden');
+                            isValid = false;
+                        } else {
+                            input.classList.remove('input-error');
+                            this.errors[index].classList.add('hidden');
+                        }
+                    });
+                    
+                    this.submitButton.disabled = !isValid;
+                    if (isValid) {
+                        this.submitButton.classList.remove('bg-gray-400');
+                        this.submitButton.classList.add('bg-green-600', 'hover:bg-green-700');
+                    } else {
+                        this.submitButton.classList.add('bg-gray-400');
+                        this.submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    }
+                    
+                    return isValid;
+                }
+            }
+            
+            const loginValidator = new FormValidator(
+                'loginForm',
+                ['loginEmail', 'loginPassword'],
+                ['loginEmailError', 'loginPasswordError'],
+                loginButton
+            );
+
+            const signupValidator = new FormValidator(
+                'signupForm',
+                ['signupName', 'signupEmail', 'signupPassword'],
+                ['nameError', 'signupEmailError', 'signupPasswordError'],
+                signupButton
+            );
+
+            // Add password confirmation validation
+            document.getElementById('confirmPassword').addEventListener('input', function() {
+                const password = document.getElementById('signupPassword').value;
+                const confirm = this.value;
+                const errorElement = document.getElementById('confirmPasswordError');
+                
+                if (password !== confirm) {
+                    this.classList.add('input-error');
+                    errorElement.classList.remove('hidden');
+                    signupButton.disabled = true;
+                } else {
+                    this.classList.remove('input-error');
+                    errorElement.classList.add('hidden');
+                    signupValidator.validateForm();
+                }
+            });
+
+            // Signup form submission
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (signupValidator.validateForm() && 
+                    document.getElementById('signupPassword').value === 
+                    document.getElementById('confirmPassword').value) {
+                    alert('Account created successfully! Please log in.');
+                    signupForm.reset();
+                    loginForm.classList.remove('hidden');
+                    signupForm.classList.add('hidden');
+                }
+            });
+
+            // Post form submission
+            document.getElementById('postForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const postContent = document.getElementById('postContent').value;
+                if (postContent) {
+                    addPost('Current User', postContent);
+                    document.getElementById('postContent').value = '';
+                    postModal.classList.add('hidden');
+                }
+            });
+
+            // Helpers for forum posts
+            function addPost(author, content) {
+                const postHTML = `
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/60x60" alt="${author}'s profile" class="w-12 h-12 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-bold">${author}</h4>
+                                <p class="text-gray-500 text-sm">Just now</p>
+                            </div>
+                        </div>
+                        <p>${content}</p>
+                        <div class="flex space-x-4 mt-4 text-gray-500">
+                            <button class="flex items-center space-x-1 hover:text-green-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                                </svg>
+                                <span>Like</span>
+                            </button>
+                            <button class="flex items-center space-x-1 hover:text-green-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                                <span>Comment</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('postsFeed').insertAdjacentHTML('afterbegin', postHTML);
+            }
+            
+            function loadSamplePosts() {
+                const samplePosts = [
+                    {
+                        author: "Oluwaseyi Adeleke",
+                        content: "Sharing my grandmother's recipe for authentic Ofada stew - the secret is in the locust beans (iru) and the special peppers! Who else has childhood memories of this dish?",
+                        time: "2 hours ago"
+                    },
+                    {
+                        author: "Emeka Okafor",
+                        content: "Beautiful photos from the New Yam Festival in my village last weekend. The cultural dances were spectacular! So proud of our Igbo heritage.",
+                        time: "1 day ago"
+                    },
+                    {
+                        author: "Amina Mohammed",
+                        content: "Visited the Nike Art Gallery in Lagos yesterday. The contemporary Nigerian art scene is thriving! Anyone else been there recently?",
+                        time: "3 days ago"
+                    }
+                ];
+                
+                samplePosts.forEach(post => {
+                    const postHTML = `
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/60x60" alt="${post.author}'s profile" class="w-12 h-12 rounded-full mr-3">
+                                <div>
+                                    <h4 class="font-bold">${post.author}</h4>
+                                    <p class="text-gray-500 text-sm">${post.time}</p>
+                                </div>
+                            </div>
+                            <p>${post.content}</p>
+                            <div class="flex space-x-4 mt-4 text-gray-500">
+                                <button class="flex items-center space-x-1 hover:text-green-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                                    </svg>
+                                    <span>Like</span>
+                                </button>
+                                <button class="flex items-center space-x-1 hover:text-green-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                    </svg>
+                                    <span>Comment</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('postsFeed').insertAdjacentHTML('beforeend', postHTML);
+                });
+            }
+            
+            // Explore and Join Community buttons
+            document.getElementById('exploreBtn').addEventListener('click', function() {
+                window.location.href = '#culture';
+            });
+            
+            document.getElementById('joinCommunityBtn').addEventListener('click', function() {
+                loginModal.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
