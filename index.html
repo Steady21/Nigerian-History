@@ -875,8 +875,9 @@
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
                         </svg>
                     </button>
-
-                    
+                    <div class="text-center text-sm text-gray-600" flex items-center justify-center>
+                        Already have an account? <a href="#" id="showLogin" class="text-green-600 hover:text-green-800 font-medium">Login</a>
+                    </div>
                             <script src="https://accounts.google.com/gsi/client" async defer></script>
                             <div id="g_id_onload"
                              data-client_id="753247570328-9rm-fo25d77n7k58l-ngn3rsqua3p7pfh3.apps.-googleusercontent.com"
@@ -899,10 +900,6 @@
                                     console.log("Encoded JWT ID token: "+ response.credential);
                                 }
                             </script>
-
-                    <div class="text-center text-sm text-gray-600" flex items-center justify-center>
-                        Already have an account? <a href="#" id="showLogin" class="text-green-600 hover:text-green-800 font-medium">Login</a>
-                    </div>
                 </form>
             </div>
         </div>
