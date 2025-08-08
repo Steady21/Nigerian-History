@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naija Heritage | Old Nigerian Delicacies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-primary: #065F46;
+            --green-secondary: #059669;
+            --gold: #DAA520;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://0701.static.prezi.com/preview/v2/bvgjda3ihnn32t6if6jw5kqpv36jc3sachvcdoaizecfr3dnitcq_3_0.png') no-repeat center center;
+            background-size: cover;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        .nav-link:hover {
+            color: var(--gold);
+        }
+        .btn-primary {
+            background-color: var(--green-primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--green-secondary);
+        }
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .input-error {
+            border-color: #ef4444;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdoO-4yThTvoEMaiBbZx9mYs68zES7MUxoOA&s" alt="Naija Heritage logo - Nigerian flag colors and cultural symbols" class="h-8 w-auto">
+                        <span class="ml-2 text-xl font-bold text-gray-900">Naija Heritage</span>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="Home.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Home</a>
+                        <a href="Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
+                        <a href="History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
+                        <a href="#" class="nav-link text-green-700 border-b-2 border-green-600 inline-flex items-center px-1 pt-1 text-sm font-medium">Food</a>
+                        <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Arts</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="pt-2 pb-4 px-4 space-y-1">
+                <a href="home.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
+                <a href="Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
+                <a href="History.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
+                <a href="Food.html" class="block pl-3 pr-4 py-2 text-base font-medium text-green-700 border-l-4 border-green-600 bg-gray-50">Food</a>
+                <a href="Arts.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-bg py-20 px-4 sm:px-6 lg:px-8 text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Old Nigerian Delicacies</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">A celebration of traditional Nigerian dishes passed down through generations</p>
+        </div>
+    </div>
+
+    <!-- Old Nigerian Delicacies Section -->
+    <section class="py-16 bg-gray-100" id="old-delicacies">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Classic Nigerian Dishes</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Discover the flavors and stories behind Nigeria's most cherished traditional meals</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Origin 1: Pounded Yam & Egusi Soup -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.atravel.blog/content/images/Pounded_Yam_and_Egusi.webp" alt="Pounded Yam and Egusi Soup" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Pounded Yam & Egusi Soup</h3>
+                        <p class="text-gray-600"></p>
+                            Pounded yam, a staple among the Yoruba and Igbo, is made by pounding boiled yam until smooth. Egusi soup, crafted from melon seeds, is enjoyed across Nigeria but has deep roots in the Yoruba and Igbo regions, symbolizing celebration and hospitality.
+                        </p>
+                    </div>
+                </div>
+                <!-- Origin 2: Jollof Rice -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://kikifoodies.com/wp-content/uploads/2024/11/ET5B6272-2-1024x1024.jpg" alt="Jollof Rice" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Jollof Rice</h3>
+                        <p class="text-gray-600">
+                            Jollof rice traces its origins to the Senegambian region, but Nigeria’s version became iconic through local adaptation. It is now a centerpiece at Nigerian gatherings, reflecting the country’s love for communal feasting and culinary creativity.
+                        </p>
+                    </div>
+                </div>
+                <!-- Origin 3: Ofada Rice & Ayamase -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://img-global.cpcdn.com/recipes/3e8a549db0ff0885/1200x630cq80/photo.jpg" alt="Ofada Rice & Ayamase" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ofada Rice & Ayamase</h3>
+                        <p class="text-gray-600">
+                            Ofada rice is indigenous to southwestern Nigeria, especially among the Yoruba. The spicy Ayamase stew, made with green peppers and assorted meats, is a hallmark of Yoruba festive cuisine.
+                        </p>
+                    </div>
+                </div>
+                <!-- Origin 4: Nkwobi -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.mydiasporakitchen.com/wp-content/uploads/2017/11/img_1798.jpg" alt="Nkwobi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Nkwobi</h3>
+                        <p class="text-gray-600">
+                            Nkwobi, a spicy cow foot dish, originates from the Igbo people of southeastern Nigeria. Traditionally served in local bars, it is a symbol of celebration and social gatherings.
+                        </p>
+                    </div>
+                </div>
+                <!-- Origin 5: Moin-Moin -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.seriouseats.com/thmb/FyrplS03gmSGkFlRtc5WuqMp5YY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230111-Moin-Moin-Maureen-Celestine-hero-5c656cbc3b684be1b1f29414f2bdc29c.JPG" alt="Moin-Moin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Moin-Moin</h3>
+                        <p class="text-gray-600">
+                            Moin-Moin, a steamed bean pudding, is popular among the Yoruba but enjoyed nationwide. Its roots lie in the creative use of local beans, peppers, and spices, often wrapped in banana leaves for added flavor.
+                        </p>
+                    </div>
+                </div>
+                <!-- Origin 6: Ukodo (Yam Pepper Soup) -->
+                <div class="cultural-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="https://www.allnigerianrecipes.com/wp-content/uploads/2022/10/nigerian-yam-pepper-soup-ukodo.jpg" alt="Ukodo (Yam Pepper Soup)" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ukodo (Yam Pepper Soup)</h3>
+                        <p class="text-gray-600">
+                            Ukodo, or yam pepper soup, is a specialty of the Urhobo people in southern Nigeria. Traditionally served at important occasions, it combines yam and spicy broth for warmth and comfort.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 Nigerian Delicacies & Ingredients Section -->
+    <section class="py-16 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-green-800">Top 3 Nigerian Delicacies & Their Ingredients</h2>
+                <p class="mt-4 text-lg text-green-700 max-w-2xl mx-auto">Explore the essential ingredients behind Nigeria's most beloved traditional dishes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Delicacy 1: Jollof Rice -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <img src="https://kikifoodies.com/wp-content/uploads/2024/11/ET5B6272-2-1024x1024.jpg" alt="Jollof Rice" class="w-32 h-32 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Jollof Rice</h3>
+                    <ul class="text-gray-700 text-left mb-2 list-disc pl-5">
+                        <li>Long grain rice</li>
+                        <li>Tomatoes & tomato paste</li>
+                        <li>Red bell peppers</li>
+                        <li>Onions</li>
+                        <li>Scotch bonnet peppers</li>
+                        <li>Vegetable oil</li>
+                        <li>Chicken or beef stock</li>
+                        <li>Seasonings (thyme, curry, bay leaf, salt, bouillon)</li>
+                    </ul>
+                </div>
+                <!-- Delicacy 2: Pounded Yam & Egusi Soup -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <img src="https://www.atravel.blog/content/images/Pounded_Yam_and_Egusi.webp" alt="Pounded Yam and Egusi Soup" class="w-32 h-32 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Pounded Yam & Egusi Soup</h3>
+                    <ul class="text-gray-700 text-left mb-2 list-disc pl-5">
+                        <li>Yam tubers (for pounded yam)</li>
+                        <li>Egusi (melon seeds)</li>
+                        <li>Palm oil</li>
+                        <li>Spinach or bitterleaf</li>
+                        <li>Assorted meats (beef, goat, tripe)</li>
+                        <li>Stockfish or dried fish</li>
+                        <li>Ground crayfish</li>
+                        <li>Onions, pepper, seasoning cubes, salt</li>
+                    </ul>
+                </div>
+                <!-- Delicacy 3: Moin-Moin -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <img src="https://www.seriouseats.com/thmb/FyrplS03gmSGkFlRtc5WuqMp5YY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230111-Moin-Moin-Maureen-Celestine-hero-5c656cbc3b684be1b1f29414f2bdc29c.JPG" alt="Moin-Moin" class="w-32 h-32 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Moin-Moin</h3>
+                    <ul class="text-gray-700 text-left mb-2 list-disc pl-5">
+                        <li>Black-eyed beans</li>
+                        <li>Red bell peppers</li>
+                        <li>Onions</li>
+                        <li>Scotch bonnet peppers</li>
+                        <li>Palm oil or vegetable oil</li>
+                        <li>Seasoning cubes, salt</li>
+                        <li>Optional: boiled eggs, sardines, corned beef</li>
+                        <li>Banana leaves or ramekins for steaming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- More Interesting Topics Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Explore More Interesting Topics</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Dive deeper into Nigeria's rich heritage with these fascinating topics.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="Festivals.html" class="block bg-green-50 rounded-lg shadow-md p-6 hover:bg-green-100 transition">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Nigerian Festivals</h3>
+                    <p class="text-gray-700">Discover colorful festivals and celebrations that unite communities across Nigeria.</p>
+                </a>
+                <a href="Languages.html" class="block bg-green-50 rounded-lg shadow-md p-6 hover:bg-green-100 transition">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Languages & Dialects</h3>
+                    <p class="text-gray-700">Explore the diversity of Nigerian languages and their cultural significance.</p>
+                </a>
+                <a href="Fashion.html" class="block bg-green-50 rounded-lg shadow-md p-6 hover:bg-green-100 transition">
+                    <h3 class="text-xl font-semibold text-green-800 mb-2">Traditional Fashion</h3>
+                    <p class="text-gray-700">Learn about traditional attire, fabrics, and the evolution of Nigerian fashion.</p>
+                </a>
+            </div>
+        </div>
+    </section></div></section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdoO-4yThTvoEMaiBbZx9mYs68zES7MUxoOA&s" alt="Naija Heritage logo in white on dark background" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold">Naija Heritage</span>
+                    </div>
+                    <p class="mt-4 text-gray-400">
+                        Celebrating the richness of Nigerian food, culture, and traditions. Connecting the diaspora with their roots and promoting culinary appreciation worldwide.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.53 7.477c-.376-.376-.984-.376-1.36 0l-4.17 4.17-4.17-4.17a.96.96 0 0 0-1.36 1.36l4.17 4.17-4.17 4.17a.96.96 0 1 0 1.36 1.36l4.17-4.17 4.17 4.17a.96.96 0 1 0 1.36-1.36l-4.17-4.17 4.17-4.17a.96.96 0 0 0 0-1.36z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Culture</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">History</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Music</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Dance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Arts & Crafts</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Forums</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Get Involved</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contribute</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Donate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; 2023 Naija Heritage. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Use</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
