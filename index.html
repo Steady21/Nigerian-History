@@ -67,40 +67,28 @@
                         <span class="ml-2 text-xl font-bold text-gray-900">Naija Heritage</span>
                     </div>
                     <div class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="https://www.naijaheritage.ng/" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Home</a>
-                        <a href="https://www.naijaheritage.ng/Cultures.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
-                        <a href="https://www.naijaheritage.ng/History.html" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
-                        <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Food</a>
+                         <a href="https://www.naijaheritage.ng/home.html#" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-green-600 text-sm font-medium">Home</a>
+                        <a href="https://www.naijaheritage.ng/Cultures.html#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Culture</a>
+                        <a href="https://www.naijaheritage.ng/History.html#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">History</a>
+                        <a href="https://www.naijaheritage.ng/food.html#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Food</a>
                         <a href="#" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium">Arts</a>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-4">
-                    <button id="loginNavBtn" class="text-gray-900 font-medium hover:text-green-600 flex items-center">
-                        <span id="loginNavBtnText">Login</span>
-                        <svg id="loginNavBtnSpinner" class="animate-spin h-5 w-5 ml-2 text-green-600 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                        </svg>
-                    </button>
-                    <button id="signupNavBtn" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 flex items-center">
-                        <span id="signupNavBtnText">Join Now</span>
-                        <svg id="signupNavBtnSpinner" class="animate-spin h-5 w-5 ml-2 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                        </svg>
-                    </button>
+               <!-- <div class="hidden md:flex items-center space-x-4">
+                    <button id="loginNavBtn" class="text-gray-900 font-medium hover:text-green-600">Login</button>
+                    <button id="signupNavBtn" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300">Join Now</button>
                     <div class="relative">
                         <button id="googleAuthBtn" class="flex items-center bg-white border border-gray-300 px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300">
                             <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google logo" class="w-5 h-5 mr-2">
                             <span class="text-gray-700 font-medium">Sign in with Google</span>
                         </button>
-                        <!-- Dropdown for Google Sign In options -->
+                         Dropdown for Google Sign In options
                         <div id="googleDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
                             <button id="googleLogin" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Login with Google</button>
                             <button id="googleSignup" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Join with Google</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <script>
                     // Google Auth dropdown logic
                     document.addEventListener('DOMContentLoaded', function() {
@@ -123,6 +111,7 @@
 
                         googleLogin.addEventListener('click', function(e) {
                             e.preventDefault();
+                            // Trigger login modal and optionally Google login logic
                             document.getElementById('loginModal').classList.remove('hidden');
                             document.getElementById('loginForm').classList.remove('hidden');
                             document.getElementById('signupForm').classList.add('hidden');
@@ -137,64 +126,6 @@
                             document.getElementById('signupForm').classList.remove('hidden');
                             googleDropdown.classList.add('hidden');
                             // Add Google signup logic here
-                        });
-
-                        // Loading effect for Login button
-                        const loginNavBtn = document.getElementById('loginNavBtn');
-                        const loginNavBtnText = document.getElementById('loginNavBtnText');
-                        const loginNavBtnSpinner = document.getElementById('loginNavBtnSpinner');
-                        loginNavBtn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            loginNavBtnText.classList.add('hidden');
-                            loginNavBtnSpinner.classList.remove('hidden');
-                            setTimeout(function() {
-                                loginNavBtnText.classList.remove('hidden');
-                                loginNavBtnSpinner.classList.add('hidden');
-                                document.getElementById('loginModal').classList.remove('hidden');
-                                document.getElementById('loginForm').classList.remove('hidden');
-                                document.getElementById('signupForm').classList.add('hidden');
-                            }, 1200);
-                        });
-
-                        // Loading effect for Signup button
-                        const signupNavBtn = document.getElementById('signupNavBtn');
-                        const signupNavBtnText = document.getElementById('signupNavBtnText');
-                        const signupNavBtnSpinner = document.getElementById('signupNavBtnSpinner');
-                        signupNavBtn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            signupNavBtnText.classList.add('hidden');
-                            signupNavBtnSpinner.classList.remove('hidden');
-                            setTimeout(function() {
-                                signupNavBtnText.classList.remove('hidden');
-                                signupNavBtnSpinner.classList.add('hidden');
-                                document.getElementById('loginModal').classList.remove('hidden');
-                                document.getElementById('loginForm').classList.add('hidden');
-                                document.getElementById('signupForm').classList.remove('hidden');
-                            }, 1200);
-                        });
-
-                        // Mobile loading effects
-                        const mobileLoginBtn = document.getElementById('mobileLoginBtn');
-                        mobileLoginBtn.addEventListener('click', function(e) {
-                            mobileLoginBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-2 text-green-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>Loading...';
-                            setTimeout(function() {
-                                mobileLoginBtn.innerHTML = 'Login';
-                                document.getElementById('loginModal').classList.remove('hidden');
-                                document.getElementById('loginForm').classList.remove('hidden');
-                                document.getElementById('signupForm').classList.add('hidden');
-                                document.getElementById('mobile-menu').classList.add('hidden');
-                            }, 1200);
-                        });
-                        const mobileSignupBtn = document.getElementById('mobileSignupBtn');
-                        mobileSignupBtn.addEventListener('click', function(e) {
-                            mobileSignupBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-2 text-green-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>Loading...';
-                            setTimeout(function() {
-                                mobileSignupBtn.innerHTML = 'Sign Up';
-                                document.getElementById('loginModal').classList.remove('hidden');
-                                document.getElementById('loginForm').classList.add('hidden');
-                                document.getElementById('signupForm').classList.remove('hidden');
-                                document.getElementById('mobile-menu').classList.add('hidden');
-                            }, 1200);
                         });
                     });
                 </script>
@@ -212,15 +143,15 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="pt-2 pb-4 px-4 space-y-1">
-                <a href="https://www.naijaheritage.ng" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
-                <a href="https://www.naijaheritage.ng/Cultures.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
-                <a href="https://www.naijaheritage.ng/History.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
-                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Food</a>
-                <a href="#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
+                <a href="https://www.naijaheritage.ng/home.html#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-900 border-l-4 border-green-600">Home</a>
+                <a href="https://www.naijaheritage.ng/Cultures.html#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Culture</a>
+                <a href="https://www.naijaheritage.ng/History.html#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">History</a>
+                <a href="https://www.naijaheritage.ng/food.html#" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Food</a>
+                <a href="Arts.html" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900">Arts</a>
                 <div class="pt-2">
-                    <button id="mobileLoginBtn" class="block w-full text-left pl-3 pr-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-50">Login</button>
+                    <!--<button id="mobileLoginBtn" class="block w-full text-left pl-3 pr-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-50">Login</button>
                     <button id="mobileSignupBtn" class="block w-full text-left pl-3 pr-4 py-2 text-base font-medium text-green-600 hover:bg-gray-50">Sign Up</button>
-                </div>
+                </div>-->
             </div>
         </div>
     </nav>
@@ -230,10 +161,10 @@
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Discover the Richness of Nigerian Culture</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Explore our vibrant traditions, history, cuisine and connect with the Naija community worldwide</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+           <!-- <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button id="exploreBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">Explore Now</button>
                 <button id="joinCommunityBtn" class="bg-white hover:bg-gray-100 text-green-700 font-bold py-3 px-6 rounded-full border border-green-700 transition duration-300">Join Our Community</button>
-            </div>
+            </div>-->
         </div>
     </div>
     <!-- Interactive Historical Timeline of Nigeria -->
@@ -766,14 +697,10 @@
                     <button 
                         type="submit" 
                         id="loginButton"
-                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300 flex items-center justify-center"
+                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300"
                         disabled
                     >
-                        <span id="loginBtnText">Login</span>
-                        <svg id="loginBtnSpinner" class="animate-spin h-5 w-5 ml-2 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                        </svg>
+                        Login
                     </button>
 
                     <div class="text-center text-sm text-gray-600">
@@ -850,14 +777,10 @@
                     <button 
                         type="submit" 
                         id="signupButton"
-                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300 flex items-center justify-center"
+                        class="w-full bg-gray-400 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-300"
                         disabled
                     >
-                        <span id="signupBtnText">Create Account</span>
-                        <svg id="signupBtnSpinner" class="animate-spin h-5 w-5 ml-2 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                        </svg>
+                        Create Account
                     </button>
 
                     <div class="mt-4 flex justify-center">
@@ -1287,3 +1210,6 @@
     </script>
 </body>
 </html>
+
+
+
